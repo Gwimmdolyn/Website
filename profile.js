@@ -1,3 +1,5 @@
+// This script manages user profiles, including loading and saving profile data
+
 document.addEventListener("DOMContentLoaded", () => {
     // Elements for profile update
     const profileForm = document.getElementById("profile-form");
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTrackerData();
 });
 
-// NEW: Display saved favorites
+// Display saved favorites
 document.addEventListener("DOMContentLoaded", () => {
     const favouriteList = document.getElementById("favourite-list");
 

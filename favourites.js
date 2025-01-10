@@ -1,5 +1,9 @@
+// allows for users to save pets to favourites
+
+// listens for click event
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("save-to-favourites")) {
+        // Find the parent pet card element
         const petCard = e.target.closest(".pet-card");
         if (!petCard) {
             console.error("No pet card found.");
@@ -14,7 +18,7 @@ document.addEventListener("click", function (e) {
             breed: petCard.querySelector(".pet-breed")?.textContent.split(": ")[1] || "Unknown Breed",
             image: petCard.querySelector("img")?.src || "default-image.png", // Add image URL
         };
-
+         // error handling
         if (!pet.id) {
             console.error("Pet ID is missing. Cannot save to favourites.");
             return;

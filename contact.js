@@ -1,3 +1,5 @@
+// This script handles the contact form submission
+
 // Select the form element
 const contactForm = document.getElementById("contactForm");
 

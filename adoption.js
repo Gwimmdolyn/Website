@@ -34,9 +34,3 @@ appointmentForm.addEventListener("submit", (e) => {
     // Clear the form fields
     appointmentForm.reset();
 });
-
-// Email validation function
-function validateEmail(email) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple regex for email validation
-    return emailPattern.test(email);
-}
