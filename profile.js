@@ -124,14 +124,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render each favourite
-    favourites.forEach((pet) => {
+    favourites.forEach((pet, index) => {
         const card = document.createElement("div");
         card.className = "favourite-card";
         card.innerHTML = `
+            <img src="${pet.image}" alt="${pet.name}" class="pet-image" style="width:100%; border-radius:5px;"/>
             <h3>${pet.name}</h3>
             <p>Type: ${pet.type}</p>
             <p>Breed: ${pet.breed}</p>
+            <button class="remove-favourite" data-index="${index}">Remove from Favourites</button>
         `;
         favouriteList.appendChild(card);
+    });
+
+    // Add click event listener to remove buttons
+    favouriteList.addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove-favourite")) {
+            const index = e.target.dataset.index;
+            favourites.splice(index, 1); // Remove the pet from the array
+            localStorage.setItem("favourites", JSON.stringify(favourites)); // Update localStorage
+            e.target.parentElement.remove(); // Remove the pet's card from the DOM
+
+            // Show message if no favourites remain
+            if (favourites.length === 0) {
+                favouriteList.innerHTML = "<p>No favorites added yet!</p>";
+            }
+        }
     });
 });

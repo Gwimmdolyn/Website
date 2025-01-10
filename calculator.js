@@ -9,7 +9,7 @@ document.getElementById("calculateCostButton").addEventListener("click", functio
         }
 
         const totalCost = adoptionFee + vetCost + suppliesCost;
-        document.getElementById("totalCost").textContent = `Estimated Total Cost: $${totalCost.toFixed(2)}`;
+        document.getElementById("totalCost").textContent = `Estimated Total Cost: £${totalCost.toFixed(2)}`;
     } catch (error) {
         alert(error.message);
     }
